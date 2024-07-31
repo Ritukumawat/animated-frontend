@@ -1,16 +1,24 @@
+import { motion } from 'framer-motion';
 import React from 'react'
 import { FaArrowUp } from "react-icons/fa";
 
 function LandingPage() {
   return (
-    <div className='w-full h-screen bg-gray-200 pt-1'>
+    <div data-scroll data-scroll-speed="0.8" className=' w-full h-screen pt-1'>
         <div className="textstructure mt-40">
 
             {["we create", "eye-opening","presentations"].map((item,index)=>{
                 return  <div className="masker ">
                   <div className='w-fit  px-14 flex overflow-hidden'>
-                    { index==1 && ( <div className='bg-red-500 relative top-[1vw] rounded-md w-[9vw] h-[4.8vw] '></div> )}
-                    <h1 className="uppercase flex items-center leading-[6.5vw] text-[7.5vw] tracking-[-0.11em] font-mono text-black">{item}</h1>
+                    { index==1 && ( 
+                      <motion.div 
+                        initial={{width:0}} 
+                        animate={{width: "9vw"}} 
+                        transition={{ease: [0.42, 0, 0.58, 1]}} 
+                        className='bg-red-500 relative top-[1vw] rounded-md w-[9vw] h-[5.2vw] overflow-hidden'>
+                          <img className='w-full h-full bg-cover' src='https://ochi.design/wp-content/uploads/2022/04/content-image01.jpg'></img>
+                      </motion.div> )}
+                    <h1 className="uppercase flex items-center leading-[6.5vw] text-[7.5vw] tracking-[-0.11em] font-semibold text-black">{item}</h1>
                   </div>
             </div>
             })}
@@ -36,3 +44,4 @@ function LandingPage() {
 }
 
 export default LandingPage
+
